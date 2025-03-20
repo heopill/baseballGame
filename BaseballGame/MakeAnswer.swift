@@ -7,9 +7,9 @@
 
 import Foundation
 
-class MakeAnswer {
+class Number {
     // 세자리 랜덤 숫자를 생성하는 함수
-    func makeAnswer() -> Int {
+    func makeNumber() -> Int {
         var number = Set<Int>()
         
         repeat {

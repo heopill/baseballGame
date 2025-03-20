@@ -10,10 +10,10 @@ import Foundation
 // BaseballGame.swift 파일 생성
 class BaseballGame {
     private let checker = BaseballNumberChecker()
-    private let random = MakeAnswer()
+    private let number = Number()
     
     func start() {
-        let answer = random.makeAnswer() // 정답을 만드는 함수
+        let answer = number.makeNumber() // 정답을 만드는 함수
         print(answer)
         print("< 게임을 시작합니다 >")
         
@@ -32,7 +32,7 @@ class BaseballGame {
             print("입력한 숫자 : \(inputNumber)")
             
             // 3. 세자리가 아니거나, 0을 가지거나 특정 숫자가 두번 사용된 경우 반복문 처음으로 돌아가기
-            if inputNumber > 999 || inputNumber <= 99 { // 숫자가 세자리인지 검사
+            if String(inputNumber).count != 3  { // 숫자가 세자리인지 검사
                 print("올바르지 않은 입력값입니다.")
             //            } else if String(inputNumber).contains("0") { // 입력값에 0 포함 검사
             //                print("숫자에 0이 포함되어 있습니다.")
