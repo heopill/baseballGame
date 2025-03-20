@@ -33,27 +33,27 @@ class BaseballNumberChecker {
         let ballCount = (0..<3).filter { answerNumber.contains(userNumber[$0]) && answerNumber[$0] != userNumber[$0] }.count
 
         if strikeCount == 3 {
-            print("3스트라이크!! 정답입니다!!!")
+            print("정답입니다!\n")
             return true
         } else if strikeCount == 2 {
-            print("2스트라이크")
+            print("2스트라이크\n")
         } else if strikeCount == 1 {
             if ballCount == 2 {
-                print("1스트라이크 2볼")
+                print("1스트라이크 2볼\n")
             } else if ballCount == 1 {
-                print("1스트라이크 1볼")
+                print("1스트라이크 1볼\n")
             } else {
-                print("1스트라이크")
+                print("1스트라이크\n")
             }
         } else {
             if ballCount == 3 {
-                print("3볼")
+                print("3볼\n")
             } else if ballCount == 2 {
-                print("2볼")
+                print("2볼\n")
             } else if ballCount == 1 {
-                print("1볼")
+                print("1볼\n")
             } else {
-                print("Nothing")
+                print("Nothing\n")
             }
         }
         return false
