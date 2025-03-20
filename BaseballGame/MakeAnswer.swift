@@ -23,12 +23,9 @@ class MakeAnswer {
         
         let uniqueNumbers = Array(number) // Set을 Array로 변환
         
-        // if let을 사용하여 옵셔널 바인딩 처리하여 안전하게 옵셔널 값 사용
-        if let randomNumner = Int("\(uniqueNumbers[0])\(uniqueNumbers[1])\(uniqueNumbers[2])") {
-            return randomNumner
-        } else {
-            return 0
-        }
+        // ?? 연산자를 사용하여 안전하게 옵셔널 값 사용
+        return Int("\(uniqueNumbers[0])\(uniqueNumbers[1])\(uniqueNumbers[2])") ?? 0
         
     }
 }
+
