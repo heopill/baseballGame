@@ -26,10 +26,10 @@ class BaseballGame {
             print("입력한 숫자 : \(inputNumber)")
             
             // 3. 세자리가 아니거나, 0을 가지거나 특정 숫자가 두번 사용된 경우 반복문 처음으로 돌아가기
-            if inputNumber > 999 { // 세자리 이상 숫자 검사
+            if inputNumber > 999 || inputNumber <= 99 { // 숫자가 세자리인지 검사
                 print("올바르지 않은 입력값입니다.")
-            } else if String(inputNumber).contains("0") { // 입력값에 0 포함 검사
-                print("숫자에 0이 포함되어 있습니다.")
+//            } else if String(inputNumber).contains("0") { // 입력값에 0 포함 검사
+//                print("숫자에 0이 포함되어 있습니다.")
             } else if alreadyHasNumber(inputNumber) { // 중복 숫자 검사 함수
                 print("중복된 입력값이 있습니다.")
             } else {
@@ -46,13 +46,17 @@ class BaseballGame {
     
     // 세자리 랜덤 숫자를 생성하는 함수
     func makeAnswer() -> Int {
-        var number = Set<Int>() // 중복 방지를 위한 Set 사용
-
-        while number.count < 3 {
-            let randomNum = Int.random(in: 1...9)
-            number.insert(randomNum) // 중복이면 추가되지 않음
-        }
-
+        var number = Set<Int>()
+        
+        repeat {
+            number = Set<Int>() // 중복 방지를 위한 Set 사용
+            
+            while number.count < 3 {
+                let randomNum = Int.random(in: 0...9)
+                number.insert(randomNum) // 중복이면 추가되지 않음
+            }
+        } while number.first == 0 // 첫 번째 숫자가 0이면 다시 만들기
+        
         let uniqueNumbers = Array(number) // Set을 Array로 변환
         
         // if let을 사용하여 옵셔널 바인딩 처리하여 안전하게 옵셔널 값 사용
